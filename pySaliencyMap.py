@@ -157,8 +157,8 @@ class pySaliencyMap:
         # find local maxima
         numlocal = 0
         lmaxmean = 0
-        for y in range(0, height-stepsize, stepsize):
-            for x in range(0, width-stepsize, stepsize):
+        for y in range(0, max(height-stepsize, stepsize), stepsize):
+            for x in range(0, max(width-stepsize, stepsize), stepsize):
                 localimg = src[y:y+stepsize, x:x+stepsize]
                 lmin, lmax, dummy1, dummy2 = cv2.minMaxLoc(localimg)
                 lmaxmean += lmax
